@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll",
     "build": "webpack",
     "watch": "watch 'npm run build' ./src",
     "start": "webpack serve --open"
