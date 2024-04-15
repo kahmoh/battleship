@@ -1,13 +1,10 @@
-const Ship = {
-    Ship: (coordinates, hitCounter = 0) => {
-      return {coordinates, hitCounter};
-    },
-    hit: function () {
-        return 'hit'
-    },
-    sunk: function () {
-
-    },
+const Ship = (coordinates) => {
+    let hitCounter = 0
+    const hit = function () {
+        return hitCounter += 1;
+    }
+    return {hit, coordinates, hitCounter};
 }
 
-module.exports = Ship;
+export {Ship};
+
