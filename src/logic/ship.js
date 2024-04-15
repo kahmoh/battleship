@@ -3,11 +3,11 @@ const Ship = {
       return {coordinates, hitCounter};
     },
     hit: function () {
-
+        return 'hit'
     },
     sunk: function () {
 
     },
 }
 
-export {Ship}
+module.exports = Ship;

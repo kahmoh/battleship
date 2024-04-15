@@ -1,5 +1,5 @@
-import {Ship} from '../logic/ship.js';
+const Ship = require('../logic/ship');
 
-test('adds 1 + 2 to equal 3', () => {
+test('returns hit', () => {
     expect(Ship.hit()).toBe('hit');
 });
