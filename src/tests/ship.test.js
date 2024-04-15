@@ -1,5 +1,6 @@
-const Ship = require('../logic/ship');
+import {Ship} from '../logic/ship';
 
-test('returns hit', () => {
-    expect(Ship.hit()).toBe('hit');
+test('returns 1', () => {
+    const testShip = Ship();
+    expect(testShip.hit()).toBe(1);
 });
