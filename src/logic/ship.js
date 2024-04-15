@@ -9,3 +9,5 @@ const Ship = {
 
     },
 }
+
+export {Ship}
