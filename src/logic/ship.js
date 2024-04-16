@@ -3,7 +3,14 @@ const Ship = (coordinates) => {
     const hit = function () {
         return hitCounter += 1;
     }
-    return {hit, coordinates, hitCounter};
+    const isSunk = function () {
+        if (hitCounter >= coordinates.length) {
+            return true
+        }else {
+            return false
+        }
+    }
+    return {hit, isSunk, coordinates, hitCounter};
 }
 
 export {Ship};

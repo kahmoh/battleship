@@ -34,3 +34,20 @@ test('hit() returns 5', () => {
     testShip.hit();
     expect(testShip.hit()).toBe(5);
 })
+
+test('isSunk() returns true', () => {
+    const testShip = Ship([1,2,3,4,5]);
+    testShip.hit()
+    testShip.hit()
+    testShip.hit()
+    testShip.hit()
+    testShip.hit()
+    expect(testShip.isSunk()).toBe(true);
+})
+
+test('isSunk() returns false', () => {
+    const testShip = Ship([1,2,3,4,5]);
+    testShip.hit()
+    testShip.hit()
+    expect(testShip.isSunk()).toBe(false);
+})
