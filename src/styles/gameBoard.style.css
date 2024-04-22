@@ -5,3 +5,17 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.game-board-row {
+    width: 100%;
+    background-color: red;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.game-board-tile {
+    width: 10%;
+    height: 100%;
+    background-color: blue;
+}
