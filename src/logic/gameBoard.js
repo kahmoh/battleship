@@ -12,12 +12,13 @@ const GameBoard = function () {
             container.appendChild(gameBoardRow)
             for (let j = 0; j < 10; j++) {
                 const gameBoardTile = Object.assign(document.createElement('div'), {
-                    id: j,
+                    id: `${i}${j}`,
                     className: 'game-board-tile',
                 })
                 gameBoardTile.addEventListener('click', (event) => {
                     const x = event.target.parentNode.id
                     const y = event.target.id
+                    event.target.classList.add('game-board-tile-with-ship')
                     getCoordinate({x,y})
                 })
                 gameBoardRow.append(gameBoardTile)
@@ -26,7 +27,7 @@ const GameBoard = function () {
         document.body.appendChild(container);
     }
     const getCoordinate = function (tile) {
-        return ({x: tile.x, y: tile.y})
+        console.log ({x: tile.x, y: tile.y})
     }
     return {createBoard}
 }
