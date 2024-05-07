@@ -1,4 +1,4 @@
-// import '../styles/gameBoard.style.css'
+import '../styles/gameBoard.style.css'
 
 const GameBoard = function () {
     const gameBoardArray = []
@@ -13,7 +13,7 @@ const GameBoard = function () {
 
     const createBoard = function () {
         const container = document.createElement("div");
-        // container.classList.add('game-board-backdrop');
+        container.classList.add('game-board-backdrop');
         for(let i = 0; i < 10; i++) {
             const gameBoardRow = Object.assign(document.createElement('div'),{
                 id: i,

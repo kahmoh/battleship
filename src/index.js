@@ -1,4 +1,4 @@
-import {GameBoard} from "./logic/gameBoard";
+import {GameBoard} from "./logic/gameBoard.js";
 
 const thisBoard = GameBoard()
 
