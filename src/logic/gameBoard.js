@@ -30,7 +30,7 @@ const GameBoard = function () {
             y: Number(y)
         }
     }
-    return {createBoard,gameBoardArray,getCoordinates}
+    return {createBoard,getCoordinates}
 }
 
 export {GameBoard}
