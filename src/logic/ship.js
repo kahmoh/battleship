@@ -3,13 +3,23 @@ import '../styles/gameBoard.style.css'
 const Ship = (coordinates,board) => {
     let hitCounter = 0
 
-    const renderShip = function () {
+    const coordinatesAreValid = function () {
+        if (coordinates.constructor === Array && coordinates.length) {
+            return true
+        }
+    }
+
+    const boardExists = function () {
         if (board !== undefined) {
-            if (coordinates.constructor === Array && coordinates.length) {
-                for (let i = 0; i < coordinates.length; i++){
-                    const tile = document.getElementById(coordinates[i])
-                    tile.classList.add('game-board-tile-with-ship')
-                }
+            return true
+        }
+    }
+
+    const renderShip = function () {
+        if (boardExists() && coordinatesAreValid()) {
+            for (let i = 0; i < coordinates.length; i++){
+                const tile = document.getElementById(coordinates[i])
+                tile.classList.add('game-board-tile-with-ship')
             }
         }
     }
