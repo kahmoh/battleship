@@ -1,0 +1,35 @@
+[class = "5"] {
+    width: 250px;
+    height: 50px;
+    margin: 10px;
+    background-color: aliceblue;
+    border: 3px blue solid;
+    box-sizing: border-box;
+}
+
+[class = "4"] {
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+    background-color: aliceblue;
+    border: 3px blue solid;
+    box-sizing: border-box;
+}
+
+[class = "3"] {
+    width: 150px;
+    height: 50px;
+    margin: 10px;
+    background-color: aliceblue;
+    border: 3px blue solid;
+    box-sizing: border-box;
+}
+
+[class = "2"] {
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    background-color: aliceblue;
+    border: 3px blue solid;
+    box-sizing: border-box;
+}
