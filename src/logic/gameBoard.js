@@ -4,7 +4,7 @@ const GameBoard = function () {
 
     const createBoard = function () {
         const container = document.createElement("div");
-        container.classList.add('game-board-backdrop');
+        container.id = ('game-board-backdrop');
         for(let i = 0; i < 10; i++) {
             const gameBoardRow = Object.assign(document.createElement('div'),{
                 id: i,
