@@ -1,4 +1,4 @@
-.game-board-backdrop {
+#game-board-backdrop {
     background-color: black;
     width: 500px;
     height: 500px;
@@ -19,7 +19,7 @@
     height: 100%;
     background-color: white;
     border: 2px blue solid;
-    box-sizing: border-box ;
+    box-sizing: border-box;
 }
 
 .game-board-tile-with-ship {
