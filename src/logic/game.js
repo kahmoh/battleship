@@ -17,7 +17,7 @@ const Game = function () {
     }
 
     const renderShips = function () {
-        for (let i = 0; i < 6; i++) {
+        for (let i = 2; i < 6; i++) {
             const shipClassName = convertNumbersToWords[i]
             if (i !== 2) {
                 document.body.append(shipElement(shipClassName))
