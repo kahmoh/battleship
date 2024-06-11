@@ -1,30 +1,23 @@
-import {Game} from "./game.js";
-import {GameBoard} from "./gameBoard.js";
+import './styles/game.style.css'
 
-const testEnvironment = function () {
-    const thisGameBoard = GameBoard()
+const element = document.createElement('div')
+element.classList.add('five')
+element.style.position = 'fixed'
 
-    const thisGame = Game()
-
-    thisGameBoard.createBoard()
-
-    thisGame.renderShips()
-
-    document.querySelector(".five").addEventListener('dragstart', (event) => {
-        event.dataTransfer.setData('text', event.target.className)
-    })
-
-    for (let i = 0; i < 100; i++) {
-        let id = i
-        if (i < 10) {
-            id = `0${i}`
-        }
-        document.getElementById(String(id)).addEventListener('dragover', (event) => event.preventDefault())
-        document.getElementById(String(id)).addEventListener('drop', (event) => {
-            event.preventDefault()
-            const data = event.dataTransfer.getData('text')
-            const element = document.getElementsByClassName(data)[0]
-        })
-    }
+const moveElement = function (x,y) {
+    const topCoordinate = (event.clientY - y)
+    const leftCoordinate = (event.clientX - x)
+    element.style.top = topCoordinate + 'px'
+    element.style.left = leftCoordinate + 'px'
 }
-export {testEnvironment}
+
+element.addEventListener('mousedown', (event) => {
+    document.addEventListener('mouseup', () => {
+        document.removeEventListener('mousemove', onMouseMove)
+    })
+    const x = event.clientX - element.offsetLeft, y = event.clientY - element.offsetTop
+    const onMouseMove = (event) => moveElement(x,y)
+    document.addEventListener('mousemove',onMouseMove)
+})
+
+document.body.appendChild(element)

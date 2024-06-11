@@ -4,7 +4,6 @@ const Game = function () {
     const shipElement = function (shipSize) {
         return Object.assign(document.createElement('div'), {
             className: String(shipSize),
-            draggable: 'true',
         })
     }
 
