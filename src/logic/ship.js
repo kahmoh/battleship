@@ -1,7 +1,16 @@
 import '../styles/gameBoard.style.css'
 
-const Ship = (coordinates,board) => {
+const Ship = (coordinates,board,shipID) => {
     let hitCounter = 0
+
+    console.log(document.getElementsByClassName(shipID)[0])
+
+
+    const checkShipElementExists = function () {
+        if (document.getElementsByClassName(shipID)[0] !== null) {
+            return document.getElementsByClassName(shipID)[0]
+        }
+    }
 
     const coordinatesAreValid = function () {
         if (coordinates.constructor === Array && coordinates.length) {
@@ -16,15 +25,12 @@ const Ship = (coordinates,board) => {
     }
 
     const renderShip = function () {
-        if (boardExists() && coordinatesAreValid()) {
-            for (let i = 0; i < coordinates.length; i++){
-                const tile = document.getElementById(coordinates[i])
-                tile.classList.add('game-board-tile-with-ship')
-            }
-        }
+        const shipElement = checkShipElementExists()
+        const startingTile = document.getElementById(coordinates[0])
+        shipElement.style.position = 'fixed'
+        shipElement.style.top = startingTile.getBoundingClientRect().y - 10 + 'px'
+        shipElement.style.left = startingTile.getBoundingClientRect().x - 10 + 'px'
     }
-
-    renderShip()
 
     const hit = function () {
         return hitCounter += 1;
@@ -36,7 +42,7 @@ const Ship = (coordinates,board) => {
             return false
         }
     }
-    return {hit, isSunk, coordinates, hitCounter};
+    return {hit, isSunk, coordinates, hitCounter,renderShip};
 }
 
 export {Ship};
