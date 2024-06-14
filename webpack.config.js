@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 const config = {
     entry: './src/index.js',
     mode: 'development',
+    devtool: 'inline-source-map',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
