@@ -24,7 +24,7 @@ const Ship = (coordinates,board,shipID) => {
         }
     }
 
-    const renderShip = function () {
+    const placeShip = function () {
         const shipElement = checkShipElementExists()
         const startingTile = document.getElementById(coordinates[0])
         shipElement.style.position = 'fixed'
@@ -42,7 +42,7 @@ const Ship = (coordinates,board,shipID) => {
             return false
         }
     }
-    return {hit, isSunk, coordinates, hitCounter,renderShip};
+    return {hit, isSunk, coordinates, hitCounter,placeShip};
 }
 
 export {Ship};
