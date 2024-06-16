@@ -9,6 +9,8 @@ const Ship = (coordinates,board,shipID) => {
     const checkShipElementExists = function () {
         if (document.getElementsByClassName(shipID)[0] !== null) {
             return document.getElementsByClassName(shipID)[0]
+        }else {
+            return "ship element doesnt exist"
         }
     }
 
