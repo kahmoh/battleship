@@ -3,9 +3,6 @@ import '../styles/gameBoard.style.css'
 const Ship = (coordinates,board,shipID) => {
     let hitCounter = 0
 
-    console.log(document.getElementsByClassName(shipID)[0])
-
-
     const checkShipElementExists = function () {
         if (document.getElementsByClassName(shipID)[0] !== null) {
             return document.getElementsByClassName(shipID)[0]
