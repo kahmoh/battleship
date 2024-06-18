@@ -1,10 +1,9 @@
-import {GameBoard} from "./gameBoard.js";
-import {Ship} from "./ship.js";
+import { GameBoard } from './gameBoard';
 
 const Player = (name) => {
-    const playerBoard = GameBoard()
+  const playerBoard = GameBoard();
 
-    return {name,playerBoard}
-}
+  return { name, playerBoard };
+};
 
-export {Player}
+export { Player };
