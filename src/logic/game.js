@@ -1,37 +1,37 @@
-import '../styles/game.style.css'
+import '../styles/game.style.css';
 
-const Game = function () {
-    const shipElement = function (shipSize) {
-        return Object.assign(document.createElement('div'), {
-            className: String(shipSize),
-        })
+function Game() {
+  function shipElement(shipSize) {
+    return Object.assign(document.createElement('div'), {
+      className: String(shipSize),
+    });
+  }
+
+  const convertNumbersToWords = {
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+  };
+
+  function renderShips() {
+    for (let i = 2; i < 6; i += 1) {
+      const shipClassName = convertNumbersToWords[i];
+      if (i !== 2) {
+        document.body.append(shipElement(shipClassName));
+      } else {
+        document.body.append(shipElement(shipClassName));
+        document.body.append(shipElement(shipClassName));
+      }
     }
+  }
 
-    const convertNumbersToWords = {
-        1: 'one',
-        2: 'two',
-        3: 'three',
-        4: 'four',
-        5: 'five'
-    }
+  function playGame() {
 
-    const renderShips = function () {
-        for (let i = 2; i < 6; i++) {
-            const shipClassName = convertNumbersToWords[i]
-            if (i !== 2) {
-                document.body.append(shipElement(shipClassName))
-            }else {
-                document.body.append(shipElement(shipClassName))
-                document.body.append(shipElement(shipClassName))
-            }
-        }
-    }
+  }
 
-    const playGame = function () {
-
-    }
-
-    return {renderShips}
+  return { renderShips, playGame };
 }
 
-export {Game}
+export { Game };
