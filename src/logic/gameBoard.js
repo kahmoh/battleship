@@ -20,16 +20,6 @@ function GameBoard() {
     }
     document.body.appendChild(container);
   }
-  function getCoordinates(tile) {
-    const unsplitCoordinates = String(tile);
-    const x = unsplitCoordinates.slice(0, unsplitCoordinates.length / 2);
-    const y = unsplitCoordinates.slice(unsplitCoordinates.length / 2, unsplitCoordinates.length);
-    return {
-      x: Number(x),
-      y: Number(y),
-    };
-  }
-
   function placeShip(startingCoordinate, shipID) {
     const shipElement = document.getElementById(shipID);
     const startingTile = document.getElementById(startingCoordinate);
@@ -38,7 +28,7 @@ function GameBoard() {
     shipElement.style.left = `${startingTile.getBoundingClientRect().x - 10}px`;
   }
 
-  return { createBoard, getCoordinates, placeShip };
+  return { createBoard, placeShip };
 }
 
 export { GameBoard };
