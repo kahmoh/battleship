@@ -29,7 +29,16 @@ function GameBoard() {
       y: Number(y),
     };
   }
-  return { createBoard, getCoordinates };
+
+  function placeShip(startingCoordinate, shipID) {
+    const shipElement = document.getElementById(shipID);
+    const startingTile = document.getElementById(startingCoordinate);
+    shipElement.style.position = 'fixed';
+    shipElement.style.top = `${startingTile.getBoundingClientRect().y - 10}px`;
+    shipElement.style.left = `${startingTile.getBoundingClientRect().x - 10}px`;
+  }
+
+  return { createBoard, getCoordinates, placeShip };
 }
 
 export { GameBoard };

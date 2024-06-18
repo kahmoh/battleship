@@ -1,6 +1,6 @@
 import '../styles/gameBoard.style.css';
 
-const Ship = (coordinates, board, shipID) => {
+const Ship = (board, shipID, length) => {
   let hitCounter = 0;
 
   function checkShipElementExists() {
@@ -10,12 +10,8 @@ const Ship = (coordinates, board, shipID) => {
     return 'ship element doesnt exist';
   }
 
-  function placeShip() {
-    const shipElement = checkShipElementExists();
-    const startingTile = document.getElementById(coordinates[0]);
-    shipElement.style.position = 'fixed';
-    shipElement.style.top = `${startingTile.getBoundingClientRect().y - 10}px`;
-    shipElement.style.left = `${startingTile.getBoundingClientRect().x - 10}px`;
+  function shipPlacementIsValid() {
+
   }
 
   function hit() {
@@ -23,10 +19,10 @@ const Ship = (coordinates, board, shipID) => {
     return hitCounter;
   }
   function isSunk() {
-    return hitCounter >= coordinates.length;
+    return hitCounter >= length;
   }
   return {
-    hit, isSunk, coordinates, hitCounter, placeShip,
+    hit, isSunk, hitCounter,
   };
 };
 
