@@ -6,7 +6,7 @@ function Game() {
 
   }
 
-  return { renderShips, playGame };
+  return { playGame };
 }
 
 export { Game };
