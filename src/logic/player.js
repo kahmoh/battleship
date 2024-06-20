@@ -1,4 +1,4 @@
-import { GameBoard } from './gameBoard';
+import { GameBoard } from './gameBoard.js';
 import {Ship} from "./ship.js";
 
 const Player = (name) => {
@@ -23,6 +23,7 @@ const Player = (name) => {
   function renderShips() {
     for (let i = 2; i < 6; i += 1) {
       const shipClassName = convertNumbersToWords[i];
+      ships.push(document.getElementsByClassName(shipClassName))
       if (i !== 2) {
         document.body.append(shipElement(shipClassName));
       } else {
@@ -32,8 +33,7 @@ const Player = (name) => {
     }
   }
 
-
-  return { name, playerBoard };
+  return { name, playerBoard, defaultShipPositions, renderShips };
 };
 
 export { Player };
