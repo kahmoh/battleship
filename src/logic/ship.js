@@ -8,7 +8,6 @@ const Ship = (length, board, shipID) => {
     return hitCounter;
   }
   function isSunk() {
-    console.log(length)
     return hitCounter >= length;
   }
   return {
