@@ -1,5 +1,5 @@
 import { GameBoard } from './gameBoard.js';
-import {Ship} from "./ship.js";
+import '../styles/game.style.css'
 
 const Player = (name) => {
   const playerBoard = GameBoard();
