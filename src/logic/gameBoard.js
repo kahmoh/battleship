@@ -54,8 +54,17 @@ function GameBoard() {
     return coordinates
   }
 
-  function verticalShipTiles() {
-
+  function verticalShipTiles(startingCoordinate,shipLength) {
+    const coordinates = [];
+    startingCoordinate = coordinateRow(startingCoordinate,-1)
+    startingCoordinate = coordinateColumn(startingCoordinate, -1)
+    for (let i = 0; i < 3; i++){
+      for (let j = 0; j < shipLength+2; j++){
+        coordinates.push(coordinateRow(startingCoordinate,j))
+      }
+      startingCoordinate = coordinateColumn(startingCoordinate,1)
+    }
+    return coordinates
   }
 
   function tileIsEmpty(tile) {
@@ -83,7 +92,7 @@ function GameBoard() {
 
   }
 
-  return { createBoard, placeShip, coordinateIsValid, coordinateRow, coordinateColumn,horizontalShipTiles };
+  return { createBoard, placeShip, coordinateIsValid, coordinateRow, coordinateColumn,horizontalShipTiles, verticalShipTiles };
 }
 
 export { GameBoard };
