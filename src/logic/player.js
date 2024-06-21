@@ -33,7 +33,7 @@ const Player = (name) => {
     }
   }
 
-  return { name, playerBoard, defaultShipPositions, renderShips };
+  return { name, playerBoard, renderShips };
 };
 
 export { Player };
