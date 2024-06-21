@@ -1,21 +1,31 @@
 import {GameBoard} from "../logic/gameBoard.js";
 
-test('getCoordinates(14) returns {x:1, y:4}', () => {
-    const testBoard = GameBoard()
-    expect(testBoard.getCoordinates(14)).toStrictEqual({x:1, y:4})
+test('returns 21', () => {
+    const testGameBoard = GameBoard()
+    expect(testGameBoard.coordinateRow("11",1)).toBe("21")
 })
 
-test('getCoordinates(99) returns {x:9, y:9}', () => {
-    const testBoard = GameBoard()
-    expect(testBoard.getCoordinates(99)).toStrictEqual({x:9, y:9})
+test('returns 01', () => {
+    const testGameBoard = GameBoard()
+    expect(testGameBoard.coordinateRow("11",-1)).toBe("01")
 })
 
-test('getCoordinates(26) returns {x:2, y:6}', () => {
-    const testBoard = GameBoard()
-    expect(testBoard.getCoordinates(26)).toStrictEqual({x:2, y:6})
+test('returns 12', () => {
+    const testGameBoard = GameBoard()
+    expect(testGameBoard.coordinateColumn("11",1)).toBe("12")
 })
 
-test('getCoordinates(71) returns {x:7, y:1}', () => {
-    const testBoard = GameBoard()
-    expect(testBoard.getCoordinates(71)).toStrictEqual({x:7, y:1})
+test('returns 10', () => {
+    const testGameBoard = GameBoard()
+    expect(testGameBoard.coordinateColumn("11",-1)).toBe("10")
+})
+
+test('returns correct values in array', () => {
+    const testGameBoard = GameBoard()
+    expect(testGameBoard.horizontalShipTiles("65",3)).toMatchObject(['54',"55","56","57","58","64","65","66","67","68","74","75","76","77","78"])
+})
+
+test('returns correct values in array', () => {
+    const testGameBoard = GameBoard()
+    expect(testGameBoard.verticalShipTiles("65",3)).toMatchObject(['54',"64","74","84","94","55","65","75","85","95","56","66","76","86","96"])
 })

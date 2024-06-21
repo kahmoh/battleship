@@ -1,37 +1,16 @@
-import '../styles/game.style.css'
+import '../styles/game.style.css';
+import {Player} from "./player.js";
 
-const Game = function () {
-    const shipElement = function (shipSize) {
-        return Object.assign(document.createElement('div'), {
-            className: String(shipSize),
-        })
-    }
+function Game() {
 
-    const convertNumbersToWords = {
-        1: 'one',
-        2: 'two',
-        3: 'three',
-        4: 'four',
-        5: 'five'
-    }
+  function playGame() {
+    const player1 = Player('Player 1')
+    player1.playerBoard.createBoard()
+    player1.renderShips()
+    player1.randomShipPositions()
+  }
 
-    const renderShips = function () {
-        for (let i = 2; i < 6; i++) {
-            const shipClassName = convertNumbersToWords[i]
-            if (i !== 2) {
-                document.body.append(shipElement(shipClassName))
-            }else {
-                document.body.append(shipElement(shipClassName))
-                document.body.append(shipElement(shipClassName))
-            }
-        }
-    }
-
-    const playGame = function () {
-
-    }
-
-    return {renderShips}
+  return { playGame };
 }
 
-export {Game}
+export { Game };

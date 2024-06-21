@@ -36,7 +36,7 @@ test('hit() returns 5', () => {
 })
 
 test('isSunk() returns true', () => {
-    const testShip = Ship([1,2,3,4,5]);
+    const testShip = Ship(5);
     testShip.hit()
     testShip.hit()
     testShip.hit()
@@ -46,7 +46,7 @@ test('isSunk() returns true', () => {
 })
 
 test('isSunk() returns false', () => {
-    const testShip = Ship([1,2,3,4,5]);
+    const testShip = Ship(5);
     testShip.hit()
     testShip.hit()
     expect(testShip.isSunk()).toBe(false);
