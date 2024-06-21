@@ -29,29 +29,33 @@ function GameBoard() {
     }
   }
 
-  function shipTiles(startingCoordinate, ship, shipOrientation) {
+  function coordinateRow(coordinate,changeValue) {
+    let coordinateArray = coordinate.split('')
+    coordinateArray[0] = Number(coordinateArray[0]) + changeValue
+    return coordinateArray.join('')
+  }
+
+  function coordinateColumn(coordinate,changeValue) {
+    let coordinateArray = coordinate.split('')
+    coordinateArray[1] = Number(coordinateArray[1]) + changeValue
+    return coordinateArray.join('')
+  }
+
+  function horizontalShipTiles(startingCoordinate, shipLength) {
     const coordinates = [];
-    for (let i = 0; i< 2; i++ ){
-      coordinates.push(startingCoordinate)
-      for (let j = 1; j < ship; j += 1) {
-        const coordinate = (Number(startingCoordinate) + j);
-        if (coordinateIsValid(coordinate) === true) {
-          coordinates.push(String(coordinate));
-        }else{
-          return `invalid placement`
+    startingCoordinate = coordinateRow(startingCoordinate,-1)
+    startingCoordinate = coordinateColumn(startingCoordinate, -1)
+    for (let i = 0; i < 3; i++){
+        for (let j = 0; j < shipLength+2; j++){
+          coordinates.push(coordinateColumn(startingCoordinate,j))
         }
-      }
-      let startingCoordinateArray = startingCoordinate.split('')
-      if (i === 0) {
-        startingCoordinateArray[0] = Number(startingCoordinateArray[0]) + 1
-      }else if (i === 1) {
-        startingCoordinateArray[0] = Number(startingCoordinateArray[0]) - 2
-      }
-      startingCoordinateArray[0] = startingCoordinateArray[0].toString()
-      startingCoordinate = startingCoordinateArray.join('')
+      startingCoordinate = coordinateRow(startingCoordinate,1)
     }
-    console.log(coordinates)
     return coordinates
+  }
+
+  function verticalShipTiles() {
+
   }
 
   function tileIsEmpty(tile) {
@@ -65,7 +69,7 @@ function GameBoard() {
   function placeShip(startingCoordinate, shipID) {
     const shipElement = document.getElementsByClassName(shipID)[0];
     const startingTile = document.getElementById(startingCoordinate);
-    const shipTilesArray = shipTiles(startingCoordinate,4)
+    const shipTilesArray = horizontalShipTiles(startingCoordinate,4)
     for (let i = 0; i < shipTilesArray.length; i += 1) {
       const targetTile = document.getElementById(shipTilesArray[i])
       targetTile.classList.add('game-board-tile-with-ship')
@@ -79,7 +83,7 @@ function GameBoard() {
 
   }
 
-  return { createBoard, placeShip, coordinateIsValid, shipTiles };
+  return { createBoard, placeShip, coordinateIsValid, coordinateRow, coordinateColumn,horizontalShipTiles };
 }
 
 export { GameBoard };
