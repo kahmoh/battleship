@@ -1,1 +1,1 @@
-import {Game} from "../logic/game.js";
+import Game from '../logic/game.js';
