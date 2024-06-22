@@ -36,4 +36,4 @@ const Player = (name) => {
   return { name, playerBoard, renderShips };
 };
 
-export default { Player };
+export default Player;

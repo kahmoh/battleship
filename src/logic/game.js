@@ -12,4 +12,4 @@ function Game() {
   return { playGame };
 }
 
-export default { Game };
+export default Game;

@@ -97,4 +97,4 @@ function GameBoard() {
   };
 }
 
-export default { GameBoard };
+export default GameBoard;
