@@ -1,10 +1,10 @@
-import { GameBoard } from './gameBoard.js';
-import '../styles/game.style.css'
+import GameBoard from './gameBoard.js';
+import '../styles/game.style.css';
 
 const Player = (name) => {
   const playerBoard = GameBoard();
 
-  const ships = []
+  const ships = [];
 
   function shipElement(shipSize) {
     return Object.assign(document.createElement('div'), {
@@ -23,7 +23,7 @@ const Player = (name) => {
   function renderShips() {
     for (let i = 2; i < 6; i += 1) {
       const shipClassName = convertNumbersToWords[i];
-      ships.push(document.getElementsByClassName(shipClassName))
+      ships.push(document.getElementsByClassName(shipClassName));
       if (i !== 2) {
         document.body.append(shipElement(shipClassName));
       } else {
@@ -36,4 +36,4 @@ const Player = (name) => {
   return { name, playerBoard, renderShips };
 };
 
-export { Player };
+export default Player;
