@@ -15,4 +15,4 @@ const Ship = (length, board, shipID) => {
   };
 };
 
-export { Ship };
+export default { Ship };
