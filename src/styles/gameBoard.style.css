@@ -22,3 +22,19 @@
     box-sizing: border-box;
 }
 
+.game-board-tile-with-ship {
+    width: 10%;
+    height: 100%;
+    background-color: white;
+    border: 2px blue solid;
+    box-sizing: border-box;
+}
+
+.surrounding-ship-tile {
+    width: 10%;
+    height: 100%;
+    background-color: white;
+    border: 2px blue solid;
+    box-sizing: border-box;
+}
+
