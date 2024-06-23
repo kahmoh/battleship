@@ -66,11 +66,14 @@ function GameBoard() {
     return coordinates;
   }
 
-  function tileIsEmpty(tile) {
-    if (document.getElementById(tile).className !== 'game-board-tile-with-ship') {
-      return true;
-    }
-    return `${tile} is busy`;
+  function tileHasShip(tile) {
+    const tileElement = document.getElementById(tile);
+    return tileElement.classList.contains('game-board-tile-with-ship');
+  }
+
+  function tileSurroundsShip(tile) {
+    const tileElement = document.getElementById(tile);
+    return tileElement.classList.contains('surrounding-ship-tile');
   }
 
   function rotateShip(shipID) {
@@ -80,15 +83,35 @@ function GameBoard() {
     shipElement.style.width = temporaryShipHeight;
   }
 
+  function notSurroundingShipTile(startingTile, length, tileArray, index) {
+    const numberTile = Number(startingTile);
+    if (tileArray[index] >= numberTile && tileArray[index] < numberTile + length) {
+      return true;
+    }
+    return false;
+  }
+
   function placeShip(startingCoordinate, shipID, shipLength) {
     const shipElement = document.getElementsByClassName(shipID)[0];
+    shipElement.style.position = 'fixed';
     const startingTile = document.getElementById(startingCoordinate);
     const shipTilesArray = horizontalShipTiles(startingCoordinate, shipLength);
     for (let i = 0; i < shipTilesArray.length; i += 1) {
       const targetTile = document.getElementById(shipTilesArray[i]);
-      targetTile.classList.add('game-board-tile-with-ship');
+      if (tileHasShip(targetTile.id)) {
+        return;
+      }
+      if (notSurroundingShipTile(startingCoordinate, shipLength, shipTilesArray, i)) {
+        if (tileSurroundsShip(targetTile.id)) {
+          return;
+        }
+      }
+      if (notSurroundingShipTile(startingCoordinate, shipLength, shipTilesArray, i)) {
+        targetTile.classList.add('game-board-tile-with-ship');
+      } else {
+        targetTile.classList.add('surrounding-ship-tile');
+      }
     }
-    shipElement.style.position = 'fixed';
     shipElement.style.top = `${startingTile.getBoundingClientRect().y - 10}px`;
     shipElement.style.left = `${startingTile.getBoundingClientRect().x - 10}px`;
   }
