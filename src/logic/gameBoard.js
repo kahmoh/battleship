@@ -73,6 +73,13 @@ function GameBoard() {
     return `${tile} is busy`;
   }
 
+  function rotateShip(shipID) {
+    const shipElement = document.getElementsByClassName(shipID)[0];
+    const temporaryShipHeight = getComputedStyle(shipElement).height;
+    shipElement.style.height = getComputedStyle(shipElement).width;
+    shipElement.style.width = temporaryShipHeight;
+  }
+
   function placeShip(startingCoordinate, shipID, shipLength) {
     const shipElement = document.getElementsByClassName(shipID)[0];
     const startingTile = document.getElementById(startingCoordinate);
