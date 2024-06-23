@@ -73,10 +73,10 @@ function GameBoard() {
     return `${tile} is busy`;
   }
 
-  function placeShip(startingCoordinate, shipID) {
+  function placeShip(startingCoordinate, shipID, shipLength) {
     const shipElement = document.getElementsByClassName(shipID)[0];
     const startingTile = document.getElementById(startingCoordinate);
-    const shipTilesArray = horizontalShipTiles(startingCoordinate, 4);
+    const shipTilesArray = horizontalShipTiles(startingCoordinate, shipLength);
     for (let i = 0; i < shipTilesArray.length; i += 1) {
       const targetTile = document.getElementById(shipTilesArray[i]);
       targetTile.classList.add('game-board-tile-with-ship');
